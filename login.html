@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" href="./../css/login.css"> -->
+    <link rel="stylesheet" href="./css/home.en.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="auth-page">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="content">
+                    <h2 class="login-title">Login</h2>
+                    <p class="notice">Please login to access the system</p>
+                    <form class="form-login" id="login-form" action="http://localhost:5000/auth/login" method="post">
+                        <label for="email">E-mail</label>
+                        <div class="customInput">
+                            <i class="fa fa-envelope icon"></i>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your e-mail" required>
+                        </div>
+                        <label for="password">Password</label>
+                        <div class="customInput">
+                            <i class="fa fa-lock icon"></i>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btnCustom "><i class="fa fa-door-open"></i> Login</button>
+                    </form>
+                    <a href="forgetpass.html">Forgot your password?</a>
+                    <a href="signup.html">Create your new account</a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="background text-center">
+                    <img src="./images/logo.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.form-login').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+        
+                // Fetch form data
+                var formData = $(this).serialize();
+        
+                // Simulate backend response
+                var fakeResponse = {
+                    success: true, // or false based on your requirement
+                    message: "Login successful" // or any error message
+                };
+        
+                // Process the fake response
+                if (fakeResponse.success) {
+                    // Login successful
+                    alert(fakeResponse.message);
+                    window.location.href = '/dashboard.html'; // Redirect to dashboard page
+                } else {
+                    // Login failed
+                    alert(fakeResponse.message);
+                }
+            });
+        });
+    </script>
+        
+
+</body>
+</html>
